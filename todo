@@ -1,0 +1,20 @@
+TODO:
+
+Set up mlab provision
+
+Create a route to a front end that:
+* Grabs news content
+    * Headline
+    * URL
+    * content
+* Create comment system for users
+
+
+
+API
+*GET renders handlebar page
+    * Calls method to scrape
+*POST
+    * Leaves comment or some shit
+
+

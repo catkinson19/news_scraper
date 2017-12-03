@@ -1,0 +1,37 @@
+<body>
+    <div class="container">
+        <div style="text-align: right; color: black;">
+            <h1>Gaming News Scraper &nbsp;
+                <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+            </h1>
+        </div>
+        <hr>
+        <br> {{#each article}}
+        <div class="row" id="row{{this._id}}" style="padding-bottom: 20px;">
+            <h4>{{this.title}}</h4>
+            <a href={{this.link}}>Link to story</a>
+            <p>{{this.content}}</p>
+
+            <div class="form-group"">
+                <div class="col col-md-7">
+                    <input type="inputData" id="comment{{this._id}}" class="commentInput form-control" placeholder="comment">
+                </div>
+                <div class="col col-md-3">
+                    <input type="inputData" id="author{{this._id}}" class="authorInput form-control" placeholder="author">
+                </div>
+            </div>
+            <div class="col col-md-2">
+                <button type="submit" id="{{this._id}}" class="commentButton btn btn-danger btn-md">Submit</button>
+            </div>
+        </div>
+        {{#each this.comments}}
+        <div style="border:1px solid #e5e5e5;">
+        <p style="margin: 10px 10px 10px;">{{this.comment}}<p>
+        <h6 style="text-align:right; margin-right: 10px;">{{this.author}}</h6>
+        </div>
+        {{/each}}
+        <hr> {{/each}}
+    </div>
+    </div>
+    </div>
+</body>

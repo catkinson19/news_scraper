@@ -71,7 +71,7 @@ function scrapePage(req, res) {
 // HTML
 app.get("/", function (req, res) {
   scrapePage();
-  axios.get("http://localhost:8080/api/articles").then(function (response) {
+  axios.get("/api/articles").then(function (response) {
     let fixMe = JSON.parse(JSON.stringify(response.data));
     let articleHB = { article: fixMe }
     console.log(articleHB);

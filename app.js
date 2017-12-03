@@ -17,10 +17,17 @@ app.set("view engine", "handlebars");
 const mongoose = require("mongoose");
 const db = require("./models");
 
-mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/ns", {
-  useMongoClient: true
-});
+if(process.env.MONGODB_URI){
+  mongoose.Promise = Promise;
+  mongoose.connect(process.env.MONGODB_URI, {
+    useMongoClient: true
+  });
+} else {
+  mongoose.Promise = Promise;
+  mongoose.connect("mongodb://localhost/ns", {
+    useMongoClient: true
+  });
+}
 
 //-- scraper --//
 let cheerio = require('cheerio')

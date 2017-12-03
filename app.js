@@ -71,7 +71,17 @@ function scrapePage(req, res) {
 // HTML
 app.get("/", function (req, res) {
   scrapePage();
-  axios.get("/api/articles").then(function (response) {
+
+  //This sucks I know:
+  let apiURI;
+
+  if(process.env.MONGODB_URI){
+    apiURI = "https://cryptic-citadel-41543.herokuapp.com/api/articles";
+  } else {
+    apiURI = "http://localhost:8080/api/articles";
+  }
+
+  axios.get(apiURI).then(function (response) {
     let fixMe = JSON.parse(JSON.stringify(response.data));
     let articleHB = { article: fixMe }
     console.log(articleHB);
